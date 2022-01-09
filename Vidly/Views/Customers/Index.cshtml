@@ -5,8 +5,13 @@
 }
 
 <h2>Customers</h2>
-
-@foreach (var customer in Model.Customers)
-{
-    <li>@customer.Name</li>
-}
+<ul>
+    @foreach (var customer in Model.Customers)
+    {
+        <li>@Html.ActionLink(@customer.Name, "Detail", "Customers",
+           new
+           {
+            @customer.Id
+           }, null)</li>
+    }
+</ul>
