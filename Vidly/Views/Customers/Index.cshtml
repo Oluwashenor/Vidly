@@ -1,17 +1,47 @@
-﻿@model Vidly.ViewModels.IndexCustomerViewModel 
+﻿@model Vidly.ViewModels.IndexCustomerViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Customers</h2>
-<ul>
-    @foreach (var customer in Model.Customers)
-    {
-        <li>@Html.ActionLink(@customer.Name, "Detail", "Customers",
-           new
-           {
-            @customer.Id
-           }, null)</li>
-    }
-</ul>
+
+@if (Model.Customers.Count < 1)
+{
+    <p>There are no Customers available at the point</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>FUll Name</th>
+                <th>Discount Rate</th>
+                <th>Membership Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.Customers)
+            {
+            <tr>
+                <td>
+                    @Html.ActionLink(@customer.Name, "Detail", "Customers",
+   new
+   {
+    @customer.Id
+   }, null)
+                </td>
+                <td>@customer.MembershipType.DiscountRate%</td>
+                <td>@customer.MembershipType.Name</td>
+
+            </tr>
+            
+
+            }
+
+
+        </tbody>
+    </table>
+
+ 
+}
