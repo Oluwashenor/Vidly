@@ -6,6 +6,8 @@
 
 <h2>Movies</h2>
 
+<button type="button" class="btn btn-primary"> @Html.ActionLink("New Movie", "MovieForm", "Movies") </button>
+
 @if (Model.Movies.Count < 1)
 {
     <p>There are no Movies available at the point</p>
@@ -15,23 +17,29 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Full Name</th>
+                <th>Movie Name</th>
                 <th>Genre</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var movie in Model.Movies)
             {
-                <tr>
-                    <td>
-                        @Html.ActionLink(@movie.Name, "Detail", "Customers",
-       new
-       {
-        @movie.Id
-       }, null)
-                    </td>
-                    <td>@movie.Genre.Name</td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink(@movie.Name, "Detail", "Movies",
+   new
+   {
+    @movie.Id
+   }, null)
+                </td>
+                <td>@movie.Genre.Name</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Movies", new
+               {
+                   @movie.Id
+               }, null  
+               )</td>
+            </tr>
             }
         </tbody>
     </table>
