@@ -36,7 +36,7 @@ namespace Vidly.Controllers
             return View(viewModel);
         }
 
-        public ActionResult New()
+        public ActionResult CustomerForm()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel

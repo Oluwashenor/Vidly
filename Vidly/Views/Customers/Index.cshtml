@@ -5,6 +5,7 @@
 }
 
 <h2>Customers</h2>
+@Html.ActionLink("New Customer", "CustomerForm", "Customers", new { @class = "btn btn-primary" })
 
 @if (Model.Customers.Count < 1)
 {
@@ -15,7 +16,7 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>FUll Name</th>
+                <th>Full Name</th>
                 <th>Discount Rate</th>
                 <th>Membership Type</th>
                 <th>Action</th>
@@ -24,24 +25,26 @@ else
         <tbody>
             @foreach (var customer in Model.Customers)
             {
-            <tr>
-                <td>
-                    @Html.ActionLink(@customer.Name, "Detail", "Customers",
-   new
-   {
-    @customer.Id
-   }, null)
-                </td>
-                <td>@customer.MembershipType.DiscountRate%</td>
-                <td>@customer.MembershipType.Name</td>
-                <td>@Html.ActionLink("Edit", "Edit", "Customers",
+                <tr>
+                    <td>
+                        @Html.ActionLink(@customer.Name, "Detail", "Customers",
+       new
+       {
+        @customer.Id
+       }, null)
+                    </td>
+                    <td>@customer.MembershipType.DiscountRate%</td>
+                    <td>@customer.MembershipType.Name</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Customers",
    new
    {
        @customer.Id
-   }, null)</td>
+   }, null)
+                    </td>
 
-            </tr>
-            
+                </tr>
+
 
             }
 
@@ -49,5 +52,5 @@ else
         </tbody>
     </table>
 
- 
+
 }
