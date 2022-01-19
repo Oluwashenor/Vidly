@@ -222,6 +222,14 @@
     <Compile Include="Migrations\202201111039178_UpdateMovieModel.Designer.cs">
       <DependentUpon>202201111039178_UpdateMovieModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201191025330_UpdateMoviesModel.cs" />
+    <Compile Include="Migrations\202201191025330_UpdateMoviesModel.Designer.cs">
+      <DependentUpon>202201191025330_UpdateMoviesModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201191055435_UpdateMovieModel1.cs" />
+    <Compile Include="Migrations\202201191055435_UpdateMovieModel1.Designer.cs">
+      <DependentUpon>202201191055435_UpdateMovieModel1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -229,6 +237,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -245,7 +254,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -349,6 +358,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201111039178_UpdateMovieModel.resx">
       <DependentUpon>202201111039178_UpdateMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201191025330_UpdateMoviesModel.resx">
+      <DependentUpon>202201191025330_UpdateMoviesModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201191055435_UpdateMovieModel1.resx">
+      <DependentUpon>202201191055435_UpdateMovieModel1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

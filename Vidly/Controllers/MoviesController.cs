@@ -50,6 +50,7 @@ namespace Vidly.Controllers
 
             var viewModel = new MovieFormViewModel
             {
+                Movie = new Movie(),
                 Genres=genres
             };
             return View(viewModel);
@@ -57,12 +58,22 @@ namespace Vidly.Controllers
 
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MovieForm", viewModel);
+            }
+           
             if (movie.Id == 0)
             {
                
                 _context.Movies.Add(movie);
                 _context.SaveChanges();
-                return Content("Id = " + movie.Id + " Name = " + movie.Name);
+                return RedirectToAction("Index", "Movies");
             }    
             else
             {
