@@ -26,9 +26,12 @@ namespace Vidly.Controllers
             {
                 Movies = movies
             };
-            return View(viewModel);
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("List",viewModel);
+            return View("ReadOnlyList", viewModel);
         }
 
+        
         public List<Movie> GetMovies()
         {
             var movies = new List<Movie>{
@@ -44,6 +47,7 @@ namespace Vidly.Controllers
             return movies;
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult MovieForm()
         {
             var genres = _context.Genres.ToList();
